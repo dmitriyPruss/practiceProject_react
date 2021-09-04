@@ -15,6 +15,7 @@ import {
 } from './components/HOCs';
 import ContestPage from './pages/ContestPage/ContestPage';
 import UserProfile from './pages/UserProfile/UserProfile';
+import PricingPage from './pages/PricingPage';
 import 'react-toastify/dist/ReactToastify.css';
 import ContestCreationPage from './pages/ContestCreation/ContestCreationPage';
 import CONSTANTS from './constants';
@@ -62,6 +63,7 @@ class App extends Component {
               title: 'Company Name',
             })}
           />
+
           <Route
             exact
             path='/startContest/taglineContest'
@@ -93,6 +95,7 @@ class App extends Component {
             path='/account'
             component={withPrivateHoc(UserProfile)}
           />
+          <Route exact path='/pricing' component={PricingPage} />
           <Route component={NotFound} />
         </Switch>
         <ChatContainer />

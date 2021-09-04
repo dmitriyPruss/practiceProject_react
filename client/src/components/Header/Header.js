@@ -1,31 +1,31 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { Link, withRouter } from 'react-router-dom'
-import styles from './Header.module.sass'
-import CONSTANTS from '../../constants'
-import Logo from '../Logo'
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link, withRouter } from 'react-router-dom';
+import styles from './Header.module.sass';
+import CONSTANTS from '../../constants';
+import Logo from '../Logo';
 import {
   getUserAction,
   clearUserStore,
-  headerRequest
-} from '../../actions/actionCreator'
+  headerRequest,
+} from '../../actions/actionCreator';
 
 class Header extends React.Component {
   componentDidMount () {
     if (!this.props.data) {
-      this.props.getUser()
+      this.props.getUser();
     }
   }
 
   logOut = () => {
-    localStorage.clear()
-    this.props.clearUserStore()
-    this.props.history.replace('/login')
-  }
+    localStorage.clear();
+    this.props.clearUserStore();
+    this.props.history.replace('/login');
+  };
 
   startContests = () => {
-    this.props.history.push('/startContest')
-  }
+    this.props.history.push('/startContest');
+  };
 
   renderLoginButtons = () => {
     if (this.props.data) {
@@ -83,7 +83,7 @@ class Header extends React.Component {
             alt='email'
           />
         </>
-      )
+      );
     }
     return (
       <>
@@ -94,12 +94,12 @@ class Header extends React.Component {
           <span className={styles.btn}>SIGN UP</span>
         </Link>
       </>
-    )
-  }
+    );
+  };
 
   render () {
     if (this.props.isFetching) {
-      return null
+      return null;
     }
     return (
       <div className={styles.headerContainer}>
@@ -174,9 +174,9 @@ class Header extends React.Component {
                     <li>
                       <a href='http://www.google.com'>HOW IT WORKS</a>
                     </li>
-                    <li>
-                      <a href='http://www.google.com'>PRICING</a>
-                    </li>
+                    <Link to='/pricing' style={{ textDecoration: 'none' }}>
+                      <span>PRICING</span>
+                    </Link>
                     <li>
                       <a href='http://www.google.com'>AGENCY SERVICE</a>
                     </li>
@@ -278,14 +278,14 @@ class Header extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-const mapStateToProps = state => state.userStore
+const mapStateToProps = state => state.userStore;
 const mapDispatchToProps = dispatch => ({
   getUser: () => dispatch(headerRequest()),
-  clearUserStore: () => dispatch(clearUserStore())
-})
+  clearUserStore: () => dispatch(clearUserStore()),
+});
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
