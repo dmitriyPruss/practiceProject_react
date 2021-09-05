@@ -23,6 +23,8 @@ function TransactionPage (props) {
   return (
     <>
       <Header />
+      {isFetching && <div>Loading...</div>}
+      {error && <div>ERROR!!!</div>}
       <section className={styles.transactionTableContainer}>
         <TransactionTable transactions={transactions} />
       </section>
