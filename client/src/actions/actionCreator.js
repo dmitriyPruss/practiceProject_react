@@ -303,12 +303,12 @@ export const getTransactionsRequest = () => ({
   type: ACTION.GET_TRANSACTIONS_REQUEST,
 });
 
-export const getTransactionsSuccess = transactions => ({
+export const getTransactionsSuccess = data => ({
   type: ACTION.GET_TRANSACTIONS_SUCCESS,
-  transactions: transactions,
+  transactions: data,
 });
 
-export const getTransactionsError = error => ({
+export const getTransactionsError = e => ({
   type: ACTION.GET_TRANSACTIONS_ERROR,
-  error: error,
+  error: e,
 });

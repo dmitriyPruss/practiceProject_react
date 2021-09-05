@@ -1,37 +1,19 @@
 import { put } from 'redux-saga/effects';
+import {
+  getTransactionsRequest,
+  getTransactionsSuccess,
+  getTransactionsError,
+} from '../actions/actionCreator';
+import * as restController from './../api/rest/restController';
 import ACTION from '../actions/actionTypes';
 
-export function * getTransactionsSaga () {
-  yield put({ type: ACTION.GET_TRANSACTIONS_REQUEST });
+export function * transactionSaga () {
+  yield put(getTransactionsRequest);
   try {
-    // const { data: transactions } = yield API.getTransactions();
+    const { data } = yield restController.getTransactions();
 
-    yield put({
-      type: ACTION.GET_TRANSACTIONS_SUCCESS,
-      transactions: transactions,
-    });
-  } catch (error) {
-    yield put({ type: ACTION.GET_TRANSACTIONS_ERROR, error: error });
-  }
-}
-
-export function * getUsersSaga () {
-  // отправить экшн ACTION_TYPES.GET_USERS_REQUEST
-  yield put(getUsersRequest()); // отправка екшна
-  // yield put({ type: ACTION_TYPES.GET_USERS_REQUEST }); // отправка екшна
-
-  try {
-    //   юзеры = загрузка()
-    const { data: users } = yield API.getUsers();
-    //   отправить экшн  ACTION_TYPES.GET_USERS_SUCCESS
-
-    yield put(getUsersSuccess(users));
-    // yield put({
-    //   type: ACTION_TYPES.GET_USERS_SUCCESS,
-    //   users: users,
-    // });
+    yield put(getTransactionsSuccess(data));
   } catch (e) {
-    //    отправить экшн  ACTION_TYPES.GET_USERS_ERROR
-    yield put(getUsersError(e));
+    yield put(getTransactionsError(e));
   }
 }
