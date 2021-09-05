@@ -1,0 +1,49 @@
+.pricesContainer {
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.priceContainer {
+  display: flex;
+  flex-direction: column;
+  width: 22%;
+  margin: 20px 0;
+}
+
+.priceElemContainer {
+  padding: 16px;
+
+  & > h3 {
+    font-size: 33px;
+    margin-top: 0;
+    font-weight: 700;
+  }
+
+  & > p {
+    color: #666;
+    font-size: 16px;
+    font-weight: 500;
+    min-height: 75px;
+    margin: 0;
+  }
+
+  & > div {
+    text-align: right;
+  }
+}
+
+.priceButton {
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 10px 5px;
+  text-align: center;
+  border-radius: 5px;
+
+  & > a {
+    text-decoration: none;
+    color: white;
+  }
+}
