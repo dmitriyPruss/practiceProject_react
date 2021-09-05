@@ -1,12 +1,12 @@
 import ACTION from './../actions/actionTypes';
 
-const iniialState = {
+const initialState = {
   isFetching: false,
   error: null,
   transactions: [],
 };
 
-function transactionReducer (state = initialState, action) {
+export default function transactionReducer (state = initialState, action) {
   const { type } = action;
 
   switch (type) {
