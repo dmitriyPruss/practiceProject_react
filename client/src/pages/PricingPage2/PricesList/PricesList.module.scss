@@ -1,0 +1,28 @@
+.articleList {
+  max-width: 1140px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pricesListItem {
+  width: 20%;
+}
+
+.header {
+  border-style: solid;
+  border-width: 5px;
+  padding: 10px;
+
+  & h3 {
+    font-size: 24px;
+  }
+
+  & p {
+    padding: 10px 0;
+  }
+
+  & div {
+    text-align: right;
+  }
+}

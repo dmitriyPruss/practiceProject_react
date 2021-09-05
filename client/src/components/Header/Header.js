@@ -73,6 +73,11 @@ class Header extends React.Component {
                 </Link>
               </li>
               <li>
+                <Link to='/transactions' style={{ textDecoration: 'none' }}>
+                  <span>Transactions</span>
+                </Link>
+              </li>
+              <li>
                 <span onClick={this.logOut}>Logout</span>
               </li>
             </ul>
